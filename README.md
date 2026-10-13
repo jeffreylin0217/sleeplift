@@ -30,15 +30,13 @@ Streamlit dashboard
 - Sends malformed records to `dead_rows` instead of mixing them into clean analytics tables
 - Includes pytest checks for Gold-layer invariants and malformed-input quarantine behavior, executed through GitHub Actions CI
 
-## Skills demonstrated
+## Design decisions
 
-- Python-based data pipeline development
-- SQL-style data modeling with DuckDB
-- Bronze/Silver/Gold analytics architecture
-- Data cleaning, validation, and quality checks
-- Idempotent ingestion using deterministic event IDs
-- Dashboarding with Streamlit
-- Automated testing with pytest and GitHub Actions
+- **Deterministic event IDs.** Each raw row gets a SHA-256 `event_id` built from its normalized contents, and Bronze inserts use `ON CONFLICT(event_id) DO NOTHING`, so rerunning on the same files adds no duplicate rows.
+- **Quarantine instead of failing the run.** Files with unsupported columns and rows missing a type or date go to `dead_rows` with a reason, so one bad export does not stop the pipeline or leak into clean tables.
+- **Aggregate before joining.** Each domain is rolled up to one row per day before the Gold join. Joining event level tables directly on date multiplies rows (two caffeine entries and two workouts on the same day become four rows) and inflates daily totals.
+- **Date spine.** `daily_features` starts from every day that appears in any domain and left joins the daily rollups, so a day with only a workout logged still shows up.
+- **ELT, not ETL.** Raw rows land in Bronze as text in one shared shape and are typed in SQL afterward, so the original values can always be reprocessed.
 
 ## Quick start
 
@@ -80,7 +78,7 @@ Do not commit real personal health data. Use the fake sample files in `data/raw/
 - `raw_events`: Bronze table with one row per raw event and a deterministic `event_id`
 - `dead_rows`: malformed rows that should not enter the clean tables
 - `sleep`, `caffeine`, `workout`, `nutrition`: typed Silver tables
-- `daily_features`: Gold feature mart with one row per day
+- `daily_features`: Gold feature mart with one row per day and 15 fields, including low sleep, late caffeine, and high caffeine flags
 
 ## Screenshots
 
