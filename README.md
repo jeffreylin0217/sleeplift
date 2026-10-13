@@ -1,8 +1,8 @@
-[![CI](https://github.com/jeffreylin0217/sleeplift-de/actions/workflows/ci.yml/badge.svg)](https://github.com/jeffreylin0217/sleeplift-de/actions/workflows/ci.yml)
+[![CI](https://github.com/jeffreylin0217/sleeplift/actions/workflows/ci.yml/badge.svg)](https://github.com/jeffreylin0217/sleeplift/actions/workflows/ci.yml)
 
-# SleepLift-DE
+# SleepLift
 
-SleepLift-DE is a batch ELT analytics pipeline for sleep, caffeine, workout, and nutrition logs. It loads CSV exports into DuckDB, organizes records into Bronze, Silver, and Gold layers, validates the outputs, and produces a `daily_features` table for a Streamlit dashboard.
+SleepLift is a batch ELT analytics pipeline for sleep, caffeine, workout, and nutrition logs. It loads CSV exports into DuckDB, organizes records into Bronze, Silver, and Gold layers, validates the outputs, and produces a `daily_features` table for a Streamlit dashboard.
 
 The project is intentionally local in scope rather than a production health application. It focuses on data ingestion, data modeling, data-quality validation, automated testing, and dashboard-ready analytics on a small reproducible dataset.
 
