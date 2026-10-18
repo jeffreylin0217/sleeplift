@@ -8,17 +8,10 @@ The project is intentionally local in scope rather than a production health appl
 
 ## What the project does
 
-```text
-raw CSV exports
-    ↓
-Bronze: raw_events
-    ↓
-Silver: typed sleep / caffeine / workout / nutrition tables
-    ↓
-Gold: daily_features, one row per day
-    ↓
-Streamlit dashboard
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/images/sleeplift-architecture-dark.png">
+  <img alt="SleepLift architecture: four CSV logs load into Bronze, then typed Silver tables, then a Gold table with one row per day that feeds a Streamlit dashboard, with bad rows set aside in quarantine" src="docs/images/sleeplift-architecture-light.png">
+</picture>
 
 ## Key features
 
