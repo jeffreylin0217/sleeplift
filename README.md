@@ -73,23 +73,9 @@ Do not commit real personal health data. Use the fake sample files in `data/raw/
 - `sleep`, `caffeine`, `workout`, `nutrition`: typed Silver tables
 - `daily_features`: Gold feature mart with one row per day and 15 fields, including low sleep, late caffeine, and high caffeine flags
 
-## Screenshots
+## Dashboard
 
-### Dashboard
-
-![Dashboard](docs/images/dashboard.png)
-
-### Gold table preview
-
-![Gold table preview](docs/images/gold.png)
-
-### Pipeline run
-
-![Pipeline run](docs/images/Streamlit_runs.png)
-
-### CI passing
-
-![CI passing](docs/images/github_pass.png)
+![Streamlit dashboard showing daily sleep, workout, and caffeine trends from the Gold table](docs/images/dashboard.png)
 
 ## Repository layout
 
