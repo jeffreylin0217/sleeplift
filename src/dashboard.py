@@ -5,8 +5,8 @@ import streamlit as st
 
 DATA = Path("data/gold/daily_features.csv")
 
-st.set_page_config(page_title="SleepLift-DE Dashboard", layout="wide")
-st.title("SleepLift-DE Dashboard")
+st.set_page_config(page_title="SleepLift Dashboard", layout="wide")
+st.title("SleepLift (Data Engineering Pipeline)")
 st.caption("Gold-layer dashboard built from daily_features.csv")
 
 if not DATA.exists():

@@ -1,4 +1,4 @@
-# SleepLift-DE Data Dictionary
+# SleepLift Data Dictionary
 
 ## Bronze layer
 

@@ -1,4 +1,4 @@
-# SleepLift-DE SQL Examples
+# SleepLift SQL Examples
 
 These are simple DuckDB queries that can be run against `data/warehouse/sleeplift.duckdb` after the pipeline runs.
 
