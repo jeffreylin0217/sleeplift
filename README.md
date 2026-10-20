@@ -71,7 +71,7 @@ Do not commit real personal health data. Use the fake sample files in `data/raw/
 - `raw_events`: Bronze table with one row per raw event and a deterministic `event_id`
 - `dead_rows`: malformed rows that should not enter the clean tables
 - `sleep`, `caffeine`, `workout`, `nutrition`: typed Silver tables
-- `daily_features`: Gold feature mart with one row per day and 15 fields, including low sleep, late caffeine, and high caffeine flags
+- `daily_features`: Gold feature mart with one row per day and 16 fields, including low sleep, late caffeine, and high caffeine flags
 
 ## Dashboard
 
